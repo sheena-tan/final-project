@@ -81,10 +81,10 @@ track_features <- read_csv(here("data/track_features.csv")) |>
 ## join data ----
 spotify_data <- inner_join(session_logs, track_features, by = "track_id")
 
-spotify_data |> skimr::skim()
+spotify_data |> skimr::skim_without_charts()
 ```
 
-### Potential data issues
+### Target Variable Analysis (Univariate)
 There are no data issues, missingness issues, or skewness with the target variable, and the distribution of TRUE and FALSE values is roughly evenly split. 
 
 Interestingly, stacked bar analyses suggest that the majority of songs that are skipped (`skip_2`) typically were also ***skipped to***, whereas the songs that were not skipped were typically played from another song being played through. In other words, if the user skipped a song to get to the current song (`hist_user_behavior_reason_start` == "fwdbtn"), then the current song is more likely to be skipped too. 
@@ -129,27 +129,14 @@ plot5 + plot6
 
 ## Plan of Investigation
 
-skips but goes back?
+### Potential data visualizations
+Studying how people listen to music provides valuable insights into their habits. We can analyze whether they skip songs but then return to them, how frequently they skip songs altogether, who is more likely to skip (such as premium or non-premium users, and whether they're listening to their own playlists or curated ones), and when they tend to skip songs (such as at certain times of the day or during particular seasons). These insights can help us improve the listening experience. For example, if many users consistently skip a certain part of a song, we can collaborate with artists to refine those sections or recommend similar songs that might better align with their preferences. Additionally, we can use this data to customize playlists and recommendations based on the time of day or seasonal trends, enhancing the overall enjoyment for listeners.Through our initial exploration, we were able to confirm that we could work with the Spotify data to visualize the answer some, or all, of these questions.
 
-how often skip?
+### Importance/Application of data
+The data and visualizations depicting user listening trends are crucial for various stakeholders within the music industry. They provide valuable insights into consumer behavior, preferences, and engagement patterns, which are instrumental for music streaming platforms, artists, record labels, advertisers, and even music researchers. For streaming platforms, such as Spotify or Apple Music, this data is essential for refining algorithms, optimizing user experience, and tailoring content recommendations to enhance user retention and satisfaction. Artists and record labels can leverage these insights to better understand their audience and refine their creative strategies, including song structure, release timing, and genre experimentation. Advertisers can use this data to target specific demographics more effectively, while researchers can gain valuable insights into societal trends, cultural preferences, and the impact of technology on music consumption habits. In essence, these data-driven visualizations are indispensable tools for decision-making and strategy formulation across the music industry.
 
-- % listeners vs % song listened to
-- skip rate(%) within in the first 60 seconds of a song
-
-who skips?
-
-- premium or not?
-- user playlist, editorial, radio, personal playlist...?
-
-when skip?
-
-- hour of the day?
-- day of week?
-- date/season?
-
-Conceptually:
-album art?
-
+### Limitations of data
+One limitation of this project is the data does not cover all influences that could prompt users to skip over songs, such as album art, the mood of the listener, the familiarity of the listener with the music, the context in which they are listening, whether the song came on shuffle play, potential technical issues, or other external disturbances. We believe we can draw connections between the data we do have to draw inferences (such as the time of day songs are skipped and the songs’ release dates)—however, we do acknowledge that many other factors not covered in our project scope may influence users’ decision to skip songs.
 
 ## References
 Spotify. (2018). *Spotify sequential Skip Prediction Challenge: Challenges*. AIcrowd. [https://www.aicrowd.com/challenges/spotify-sequential-skip-prediction-challenge](https://www.aicrowd.com/challenges/spotify-sequential-skip-prediction-challenge)

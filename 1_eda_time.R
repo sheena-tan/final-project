@@ -40,6 +40,7 @@ plot_hour <- ggplot(hour_data, aes(hour_of_day, percent_skip)) +
     y = "Percentage of Songs Skipped"
   )
 
+# hour of day AND amount of plays
 play_data <- spotify_eda |> count(hour_of_day) |>
   arrange(desc(n)) |>
   mutate(percent_plays = n / n[1])
@@ -71,10 +72,15 @@ plot_plays <- ggplot(hour_data, aes(hour_of_day, percent_skip)) +
     y = "Percentage"
   )
 
-
 # day of week
+spotify_eda |> mutate(wday = wday(date, label = TRUE)) |>
+  count(wday, skip_2) |>
+  kable() |>
+  save_kable(file = here("results/table_wday.png"))
 
 # date/season
+spotify_eda |> mutate(month = month(date)) |>
+  count(month, skip_2)
 
 ggsave(here("results/plot_hour.png"), plot_hour)
 ggsave(here("results/plot_plays.png"), plot_plays)

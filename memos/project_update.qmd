@@ -1,0 +1,45 @@
+---
+title: "Exploratory Data Analysis"
+subtitle: |
+  | Spotify Sequential Skip Prediction
+  | Information Visualization (COMM 395) Final Project
+author: "Andrew, Maya, Tina, Sheena"
+date: today
+
+format:
+  html:
+    toc: true
+    embed-resources: true
+    
+execute:
+  echo: false
+  warning: false
+
+from: markdown+emoji 
+reference-location: margin
+citation-location: margin
+---
+
+::: {.callout-tip icon=false}
+
+## Github Repo Link
+
+[https://github.com/sheena-tan/final-project.git](https://github.com/sheena-tan/final-project.git)
+
+:::
+
+## Premium vs Non-premium
+Surprisingly, there wasn't much of a difference in skip behavior between premium and non-premium users.
+For non-premium users, 2501 songs were not skipped, and 2738 were skipped. For premium users, 10,396 songs were not skipped, and 11,233 songs were skipped.
+See `results/table.premium.png` for the raw data.
+
+## Factor
+User_start variable clearly influences, context has slight influence, others none
+
+## Numeric
+time of day: skip least when asleep
+
+
+
+
+

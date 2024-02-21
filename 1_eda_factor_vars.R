@@ -1,16 +1,18 @@
-# Exploratory Data Analysis
-# inspect target variable + other questions of interest
+# EDA - factor variable analyses
 
 # load packages
 library(tidyverse)
-library(patchwork)
 library(here)
 library(ggthemes)
+library(knitr)
+library(kableExtra)
 
 # load data
 spotify_eda <- readRDS(here("data/spotify_eda.rds"))
 
 # inspect target variable ----
+spotify_eda |> group_by(premium) |> count(skip_2) |> kable() |>
+  save_kable(file = here("results/table_premium.png"))
 
 # factor variables
 plot_stacked_bar <- function(data, x_variable, fill_variable) {

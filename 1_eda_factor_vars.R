@@ -65,7 +65,7 @@ stacked_mode <- spotify_eda |> plot_stacked_bar(skip_2, mode) +
   labs(title = "Mode")
 
 stacked_time_signature <- spotify_eda |> plot_stacked_bar(skip_2, time_signature) +
-  labs(title = "Key Signature")
+  labs(title = "Time Signature")
 
 ggsave(here("results/stacked_context.png"), stacked_context)
 ggsave(here("results/stacked_start.png"), stacked_start)

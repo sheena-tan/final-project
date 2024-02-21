@@ -26,10 +26,12 @@ plot_stacked_bar <- function(data, x_variable, fill_variable) {
       legend.title = element_blank(),
       legend.background = element_blank(),
       legend.position = "bottom",
-      plot.title = element_text(size = 12, hjust = 0.5),
-      plot.subtitle = element_text(size = 10, hjust = 0.5),
+      legend.text = element_text(color = "white"),
+      plot.title = element_text(size = 12, hjust = 0.5, color = "white"),
+      plot.subtitle = element_text(size = 10, hjust = 0.5, color = "white"),
       panel.background = element_blank(),
-      plot.background = element_blank()
+      plot.background = element_blank(),
+      axis.text = element_text(color = "white")
     )
 }
 

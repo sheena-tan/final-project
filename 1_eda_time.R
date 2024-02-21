@@ -1,10 +1,4 @@
-
-# skips but goes back?
-
-# how often skip?
-#### % listeners vs % song listened to
-#### skip rate(%) within in the first 60 seconds of a song
-
+# EDA - time analyses (time of day, day of week, month/season)
 
 library(tidyverse)
 library(here)
@@ -22,7 +16,7 @@ hour_data <- spotify_eda |> count(hour_of_day, skip_2) |>
   filter(skip_2 == TRUE)
 
 plot_hour <- ggplot(hour_data, aes(hour_of_day, percent_skip)) +
-  geom_line() +
+  geom_line(color = "white") +
   geom_point(aes(color = "red")) +
   ylim(0, 1) +
   theme_fivethirtyeight() +
@@ -30,12 +24,14 @@ plot_hour <- ggplot(hour_data, aes(hour_of_day, percent_skip)) +
     legend.title = element_blank(),
     legend.background = element_blank(),
     legend.position = "none",
-    plot.title = element_text(size = 12, hjust = 0.5),
-    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    plot.title = element_text(size = 12, hjust = 0.5, color = "white"),
+    plot.subtitle = element_text(size = 10, hjust = 0.5, color = "white"),
     panel.background = element_blank(),
     plot.background = element_blank(),
-    axis.title.x = element_text(size = 10, vjust = 0),
-    axis.title.y = element_text(size = 10)
+    axis.title.x = element_text(size = 10, vjust = 0, color = "white"),
+    axis.title.y = element_text(size = 10, color = "white"),
+    axis.text = element_text(color = "white")
   ) +
   labs(
     title = "When do people skip the most?",
@@ -49,22 +45,24 @@ play_data <- spotify_eda |> count(hour_of_day) |>
   mutate(percent_plays = n / n[1])
 
 plot_plays <- ggplot(hour_data, aes(hour_of_day, percent_skip)) +
-  geom_line() +
+  geom_line(color = "white") +
   geom_point(aes(color = "red")) +
-  geom_line(data = play_data, aes(hour_of_day, percent_plays)) +
+  geom_line(data = play_data, aes(hour_of_day, percent_plays), color = "white") +
   geom_point(data = play_data, aes(hour_of_day, percent_plays, color = "skyblue")) +
-  ylim(0, 1) +
   theme_fivethirtyeight() +
+  ylim(0, 1) +
   theme(
     legend.title = element_blank(),
     legend.background = element_blank(),
     legend.position = "none",
-    plot.title = element_text(size = 12, hjust = 0.5),
-    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    plot.title = element_text(size = 12, hjust = 0.5, color = "white"),
+    plot.subtitle = element_text(size = 10, hjust = 0.5, color = "white"),
     panel.background = element_blank(),
     plot.background = element_blank(),
-    axis.title.x = element_text(size = 10, vjust = 0),
-    axis.title.y = element_text(size = 10)
+    axis.title.x = element_text(size = 10, vjust = 0, color = "white"),
+    axis.title.y = element_text(size = 10, color = "white"),
+    axis.text = element_text(color = "white")
   ) +
   labs(
     title = "How does skip rate relate to play rate?",

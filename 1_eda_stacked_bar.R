@@ -71,20 +71,3 @@ ggsave(here("results/stacked_key.png"), stacked_key)
 ggsave(here("results/stacked_mode.png"), stacked_mode)
 ggsave(here("results/stacked_time_signature.png"), stacked_time_signature)
 
-
-# skips but goes back?
-
-# how often skip?
-#### % listeners vs % song listened to
-#### skip rate(%) within in the first 60 seconds of a song
-
-# who skips?
-#### premium or not?
-#### user playlist, editorial, radio, personal playlist...?
-
-# when skip?
-#### hour of the day?
-#### day of week?
-#### date/season?
-
-# album art?
